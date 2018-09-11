@@ -9,10 +9,15 @@
 </head>
 <body>
     <div id="log"></div>
+    <img id="image" src="website_news.png" style="margin: 80px;" />
+
     <script type="text/javascript">
-        var logText = document.querySelector("#log");
+        var logEl = document.querySelector("#log");
+        var imageEl = document.querySelector("#image");
+
         window.addEventListener("deviceorientation", function (e) {
-            logText.innerHTML = `alpha: ${e.alpha}<br />beta: ${e.beta}<br />gamma: ${e.gamma}`;
+            logEl.innerHTML = `alpha: ${e.alpha}<br />beta: ${e.beta}<br />gamma: ${e.gamma}`;
+            imageEl.style.transform = `rotateY(${-e.gamma}deg) rotateX(${e.beta}deg) rotateZ(${e.alpha}deg)`;
         });
     </script>
 </body>
