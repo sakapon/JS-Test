@@ -8,6 +8,12 @@
     </style>
 </head>
 <body>
-    <p id="log"></p>
+    <div id="log"></div>
+    <script type="text/javascript">
+        var logText = document.querySelector("#log");
+        window.addEventListener("deviceorientation", function (e) {
+            logText.innerHTML = `alpha: ${e.alpha}<br />beta: ${e.beta}<br />gamma: ${e.gamma}`;
+        });
+    </script>
 </body>
 </html>
