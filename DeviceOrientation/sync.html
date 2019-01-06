@@ -70,12 +70,14 @@
         var cubeEl = document.querySelector("#cube");
         var imageEl = document.querySelector("#image");
 
-        window.addEventListener("deviceorientation", function (e) {
-            logEl.innerHTML = `alpha: ${e.alpha}<br />beta: ${e.beta}<br />gamma: ${e.gamma}`;
-            var rotation = `rotateZ(${-e.alpha}deg) rotateX(${-e.beta}deg) rotateY(${e.gamma}deg)`;
-            cubeEl.style.transform = rotation;
-            imageEl.style.transform = rotation;
-        });
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener("deviceorientation", function (e) {
+                logEl.innerHTML = `alpha: ${e.alpha}<br />beta: ${e.beta}<br />gamma: ${e.gamma}`;
+                var rotation = `rotateZ(${-e.alpha}deg) rotateX(${-e.beta}deg) rotateY(${e.gamma}deg)`;
+                cubeEl.style.transform = rotation;
+                imageEl.style.transform = rotation;
+            });
+        }
     </script>
 
     <ul>
